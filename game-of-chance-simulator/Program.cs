@@ -14,6 +14,7 @@ namespace GameOfChanceSimulator
             using (var reader = new StreamReader(file))
             {
                 List<string> listA = new List<string>();
+                List<string[]> listB = new List<string[]>();
                 while (!reader.EndOfStream)
                 {
                     var line = reader.ReadLine();
@@ -23,11 +24,12 @@ namespace GameOfChanceSimulator
                 foreach (var item in listA)
                 {
                     var values = item.Split(',');
-                    for (int i = 0; i < listA.Count; i++)
-                    {
-                        allFighters[i] = new Fighter(values[0], Int32.Parse(values[1]), Int32.Parse(values[2]), Int32.Parse(values[3]), Int32.Parse(values[4]));
-                    }
+                    listB.Add(values);
+                }
 
+                for (int i = 0; i < listB.Count; i++)
+                {
+                    allFighters[i] = new Fighter(listB[i][0], Int32.Parse(listB[i][1]), Int32.Parse(listB[i][2]), Int32.Parse(listB[i][3]), Int32.Parse(listB[i][4]));
                 }
 
 
@@ -38,11 +40,11 @@ namespace GameOfChanceSimulator
                 */
 
 
-                //for (int i = 0; i < 10; i++)
-                //{
-                //  Random randomFighter = new Random();
-                // Console.WriteLine(allFighters[0].Fight(allFighters[randomFighter.Next(0, 4)], allFighters[randomFighter.Next(0, 4)]));
-                // }
+                for (int i = 0; i < 10; i++)
+                {
+                    Random randomFighter = new Random();
+                    Console.WriteLine(allFighters[0].Fight(allFighters[randomFighter.Next(0, 4)], allFighters[randomFighter.Next(0, 4)]));
+                }
             }
         }
     }
