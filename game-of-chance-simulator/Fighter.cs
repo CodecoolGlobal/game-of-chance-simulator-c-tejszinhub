@@ -7,7 +7,7 @@ namespace GameOfChanceSimulator
     class Fighter
     {
         //csv header Name,Hp,Dmg,Acc,NoS
-        string Name;
+        public string Name { get; set; }
         int Hp;
         int Damage;
         int Accuracy;
@@ -20,6 +20,10 @@ namespace GameOfChanceSimulator
             this.Damage = fighter.Damage;
             this.Accuracy = fighter.Accuracy;
             this.NumOfShots = fighter.NumOfShots;
+        }
+        public Fighter(string name)
+        {
+            this.Name = name;
         }
 
         public Fighter(string name, int hp, int damage, int accuracy, int numOfShots)
