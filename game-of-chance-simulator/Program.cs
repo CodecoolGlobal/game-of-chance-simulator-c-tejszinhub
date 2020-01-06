@@ -7,7 +7,7 @@ namespace GameOfChanceSimulator
 {
     class Program
     {
-        static void Main()
+        static void Main(string[] args)
         {
 
             var file = @"C:\Learning\game-of-chance-simulator-c-tejszinhub\game-of-chance-simulator\Fighters.csv";
@@ -33,18 +33,26 @@ namespace GameOfChanceSimulator
                 }
 
 
-                /*Fighter geralt = new Fighter("Geralt", 80, 75, 60, 4);
-                Fighter manhattan = new Fighter("Dr_Manhattan", 100, 1000, 40, 1);
-                Fighter terminator = new Fighter("Terminator3", 90, 15, 20, 30);
-                Fighter rambo = new Fighter("Rambo", 100, 45, 65, 25);
-                */
-
-
                 for (int i = 0; i < 10; i++)
                 {
                     Random randomFighter = new Random();
-                    Console.WriteLine(allFighters[0].Fight(allFighters[randomFighter.Next(0, allFighters.Length)], allFighters[randomFighter.Next(0, allFighters.Length)]));
+                    int fighterA = randomFighter.Next(0, allFighters.Length);
+                    int fighterB = randomFighter.Next(0, allFighters.Length);
+
+                    while (fighterA == fighterB)
+                    {
+                        fighterB = randomFighter.Next(0, allFighters.Length);
+                        /*Console.WriteLine("most" + allFighters[fighterB].Name);
+                        Console.WriteLine("Ez volt" + allFighters[fighterA].Name);*/
+                    }
+
+                    Console.WriteLine(allFighters[0].Fight(allFighters[fighterA], allFighters[fighterB]));
+                    /*Console.WriteLine("B " + allFighters[fighterB].Name);
+                    Console.WriteLine("A " + allFighters[fighterA].Name);*/
                 }
+
+                HistoricalDataSet.GenerateHistoricalDataSet();
+
             }
         }
     }
