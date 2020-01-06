@@ -21,10 +21,6 @@ namespace GameOfChanceSimulator
             this.Accuracy = fighter.Accuracy;
             this.NumOfShots = fighter.NumOfShots;
         }
-        public Fighter(string name)
-        {
-            this.Name = name;
-        }
 
         public Fighter(string name, int hp, int damage, int accuracy, int numOfShots)
         {

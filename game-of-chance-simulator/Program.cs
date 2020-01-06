@@ -43,7 +43,7 @@ namespace GameOfChanceSimulator
                 for (int i = 0; i < 10; i++)
                 {
                     Random randomFighter = new Random();
-                    Console.WriteLine(allFighters[0].Fight(allFighters[randomFighter.Next(0, 4)], allFighters[randomFighter.Next(0, 4)]));
+                    Console.WriteLine(allFighters[0].Fight(allFighters[randomFighter.Next(0, allFighters.Length)], allFighters[randomFighter.Next(0, allFighters.Length)]));
                 }
             }
         }
