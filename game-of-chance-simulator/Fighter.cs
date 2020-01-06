@@ -13,6 +13,15 @@ namespace GameOfChanceSimulator
         int Accuracy;
         int NumOfShots;
 
+        public Fighter(Fighter fighter)
+        {
+            this.Name = fighter.Name;
+            this.Hp = fighter.Hp;
+            this.Damage = fighter.Damage;
+            this.Accuracy = fighter.Accuracy;
+            this.NumOfShots = fighter.NumOfShots;
+        }
+
         public Fighter(string name, int hp, int damage, int accuracy, int numOfShots)
         {
             this.Name = name;
@@ -24,7 +33,7 @@ namespace GameOfChanceSimulator
         private void Attack(Fighter fighter1, Fighter fighter2)
         {
             Random random = new Random();
-            if (random.Next(1,101) <= fighter1.Accuracy)
+            if (random.Next(1, 101) <= fighter1.Accuracy)
             {
                 fighter2.Hp = fighter2.Hp - fighter1.Damage;
             }
@@ -43,41 +52,46 @@ namespace GameOfChanceSimulator
         public string Fight(Fighter fighter1, Fighter fighter2)
         {
             // deep copy fighter 1 and 2
+            var fighterA = new Fighter(fighter1);
+            var fighterB = new Fighter(fighter2);
             int gameLen;
-            if (fighter1.NumOfShots >= fighter2.NumOfShots)
+
+            if (fighterA.NumOfShots >= fighterB.NumOfShots)
             {
-                gameLen = fighter1.NumOfShots;
+                gameLen = fighterA.NumOfShots;
             }
             else
             {
-                gameLen = fighter2.NumOfShots;
+                gameLen = fighterB.NumOfShots;
             }
             for (int i = 0; i < gameLen; i++)
             {
                 if (fighter1.NumOfShots >= 1)
                 {
-                    Attack(fighter1, fighter2);
-                    fighter1.NumOfShots--;
-                    if (IsDead(fighter2))
+                    Attack(fighterA, fighterB);
+                    fighterA.NumOfShots--;
+                    //Console.WriteLine("copy 2 : " + fighterB.Hp + "eredeti " + fighter2.Hp);
+                    if (IsDead(fighterB))
                     {
-                        return fighter1.Name; 
+                        return fighterA.Name;
                     }
                 }
-                if (fighter2.NumOfShots >= 1)
+                if (fighterB.NumOfShots >= 1)
                 {
-                    Attack(fighter2, fighter1);
-                    fighter2.NumOfShots--;
-                    if (IsDead(fighter1))
+                    Attack(fighterB, fighterA);
+                    fighterB.NumOfShots--;
+                    //Console.WriteLine("copy 1 : " + fighterA.Hp + "eredeti " + fighter1.Hp);
+                    if (IsDead(fighterA))
                     {
-                        return fighter2.Name;
+                        return fighterB.Name;
                     }
                 }
             }
-            if (fighter1.Hp>= fighter2.Hp)
+            if (fighterA.Hp >= fighterB.Hp)
             {
-                return fighter1.Name;
+                return fighterA.Name;
             }
-            return fighter2.Name;
+            return fighterB.Name;
         }
     }
 }
