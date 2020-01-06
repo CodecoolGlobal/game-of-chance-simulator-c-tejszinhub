@@ -1,0 +1,43 @@
+Game of chance: WWIII2020
+
+Sniper
+Hp:  60
+Dmg: 90
+Acc: 70
+NoS: 2 (Shoots at start and the end of the rounds.)
+
+
+Assault
+Hp:  90
+Dmg: 15
+Acc: 20
+NoS: 30
+
+
+Light msg
+Hp:  100
+Dmg: 20
+Acc: 15
+NoS: 25
+
+
+John Doe
+Hp:  50
+Dmg: 10
+Acc: 70
+NoS: 40
+
+
+Dr. Manhattan
+Hp:  100
+Dmg: 1000
+Acc: 100
+NoS: 1 (At the end of the round)
+
+
+
+Geralt
+Hp:  80
+Dmg: 25
+Acc: 75
+NoS: 4
