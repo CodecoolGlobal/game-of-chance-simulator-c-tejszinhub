@@ -16,7 +16,7 @@ namespace GameOfChanceSimulator
         public string DataPoint { get; set; }
         public HistoricalDataPoint(string[] fightResult)
         {
-            this.DataPoint = $"{fightResult[0]},{fightResult[1]},{fightResult[2]},";
+            this.DataPoint = $"{fightResult[0]},{fightResult[1]},{fightResult[2]}";
         } 
     }
 }

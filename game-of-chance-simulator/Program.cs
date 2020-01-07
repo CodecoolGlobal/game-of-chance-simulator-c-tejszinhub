@@ -9,11 +9,14 @@ namespace GameOfChanceSimulator
     {
         static void Main(string[] args)
         {
-            Round round = new Round();
-            round.LoadFighters(@"C:\Users\nevie\Desktop\gameOfChance\game-of-chance-simulator\Fighters.csv");
-            string[] resultArray = new string[3];
-            resultArray = round.FightResult();
-            Console.WriteLine($"fighter1: '{resultArray[0]}', fighter2: '{resultArray[1]}', winner: '{resultArray[2]}'"); 
+            HistoricalDataSet dataSet = new HistoricalDataSet();
+
+            for (int i = 0; i < 1000; i++)
+            {
+                dataSet.Generate();
+            }
+            Console.WriteLine(dataSet.DataPoints[1].DataPoint+ dataSet.DataPoints[2].DataPoint+ dataSet.DataPoints[3].DataPoint);
+            //Console.WriteLine(dataSet.Size);
         }
     }
 }

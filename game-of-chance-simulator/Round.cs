@@ -50,7 +50,6 @@ namespace GameOfChanceSimulator
             {
                 fighterB = randomFighter.Next(0, AllFighters.Length);
             }
-            Console.WriteLine(AllFighters[fighterA].Name + AllFighters[fighterB].Name);
             string winner = AllFighters[0].Fight(AllFighters[fighterA], AllFighters[fighterB]);
             string[] resultArray = new string[]{ AllFighters[fighterA].Name,AllFighters[fighterB].Name, winner };
             return resultArray;
