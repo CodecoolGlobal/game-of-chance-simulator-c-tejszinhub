@@ -70,7 +70,6 @@ namespace GameOfChanceSimulator
                 {
                     Attack(fighterA, fighterB);
                     fighterA.NumOfShots--;
-                    //Console.WriteLine("copy 2 : " + fighterB.Hp + "eredeti " + fighter2.Hp);
                     if (IsDead(fighterB))
                     {
                         return fighterA.Name;
@@ -80,7 +79,6 @@ namespace GameOfChanceSimulator
                 {
                     Attack(fighterB, fighterA);
                     fighterB.NumOfShots--;
-                    //Console.WriteLine("copy 1 : " + fighterA.Hp + "eredeti " + fighter1.Hp);
                     if (IsDead(fighterA))
                     {
                         return fighterB.Name;
