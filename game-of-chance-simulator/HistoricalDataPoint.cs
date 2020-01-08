@@ -14,13 +14,24 @@ namespace GameOfChanceSimulator
     class HistoricalDataPoint
     {
         public string DataPoint { get; set; }
+        public string fighter1;
+        public string fighter2;
+        public string winner { get; set; } 
+
         public HistoricalDataPoint(string[] fightResult)
         {
             this.DataPoint = $"{fightResult[0]},{fightResult[1]},{fightResult[2]}";
+            this.fighter1 = fightResult[0];
+            this.fighter2 = fightResult[1];
+            this.winner = fightResult[2];
         }
         public HistoricalDataPoint(string datapoint)
         {
             this.DataPoint = datapoint;
+            string[] fightResult = datapoint.Split(",");
+            this.fighter1 = fightResult[0];
+            this.fighter2 = fightResult[1];
+            this.winner = fightResult[2];
         }
     }
 }

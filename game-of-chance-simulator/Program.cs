@@ -9,14 +9,19 @@ namespace GameOfChanceSimulator
     {
         static void Main(string[] args)
         {
-            HistoricalDataSet dataSet = new HistoricalDataSet();
+            /*HistoricalDataSet dataSet = new HistoricalDataSet();
+            dataSet.Load();
+            var dataEvaulator = new DataEvaluator();
+            var result = dataEvaulator.Run(dataSet);
+            Console.WriteLine(result.BestChoice);
+            Console.WriteLine(result.NumberOfSimulations);
+            Console.WriteLine(result.BestChoiceChance.ToString(".0###########"));*/
 
-            for (int i = 0; i < 1000; i++)
-            {
-                dataSet.Generate();
-            }
-            Console.WriteLine(dataSet.DataPoints[1].DataPoint+ dataSet.DataPoints[2].DataPoint+ dataSet.DataPoints[3].DataPoint);
-            //Console.WriteLine(dataSet.Size);
+
+
+
+            
+
         }
     }
 }

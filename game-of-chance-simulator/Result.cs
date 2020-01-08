@@ -12,7 +12,9 @@ namespace GameOfChanceSimulator
 
         public Result(int num, string name, float percent)
         {
-
+            NumberOfSimulations = num;
+            BestChoice = name;
+            BestChoiceChance = percent;
         }
     }
 }

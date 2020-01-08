@@ -14,20 +14,20 @@ namespace GameOfChanceSimulator
         {
             _DataPoints.Add(dataPoint);
         }
-        /*public HistoricalDataSet(ILogger)
+        public HistoricalDataSet(ILogger log)
         {
 
-        }*/
+        }
 
         public void Generate()
         {
             Round round = new Round();
-            round.LoadFighters("Fighters.csv");
+            round.LoadFighters(@"..\..\..\Fighters.csv");
             HistoricalDataPoint dataPoint = new HistoricalDataPoint(round.FightResult());
             AddDatapoint(dataPoint);
             this.Size++;
 
-            string history = "history.csv";
+            string history = @"..\..\..\history.csv";
             if (!File.Exists(history))
             {
                 File.WriteAllText(history, dataPoint.DataPoint + "\n");
@@ -40,12 +40,12 @@ namespace GameOfChanceSimulator
         }
         public void Load()
         {
-            string file = "history.csv";
+            string file = @"..\..\..\history.csv";
             string[] historialData = System.IO.File.ReadAllLines(file);
             foreach (var item in historialData)
             {
-                HistoricalDataPoint s = new HistoricalDataPoint(item);
-                AddDatapoint(s);
+                HistoricalDataPoint nextDataPoint = new HistoricalDataPoint(item);
+                AddDatapoint(nextDataPoint);
                 this.Size++;
             }
         }
