@@ -31,7 +31,7 @@ namespace GameOfChanceSimulator
             this.NumOfShots = numOfShots;
         }
         private void Attack(Fighter fighter1, Fighter fighter2)
-        {
+        {//Mini game's Attack logic
             Random random = new Random();
             if (random.Next(1, 101) <= fighter1.Accuracy)
             {
@@ -41,7 +41,7 @@ namespace GameOfChanceSimulator
         }
 
         private bool IsDead(Fighter fighter)
-        {
+        {//Checking hp must be higher than 0.
             if (fighter.Hp <= 0)
             {
                 return true;
@@ -50,12 +50,11 @@ namespace GameOfChanceSimulator
         }
 
         public string Fight(Fighter fighter1, Fighter fighter2)
-        {
-            // deep copy fighter 1 and 2
+        {//Creating deep copies of fighters.
             var fighterA = new Fighter(fighter1);
             var fighterB = new Fighter(fighter2);
             int gameLen;
-
+            //Fighting logic and determaning round length.
             if (fighterA.NumOfShots >= fighterB.NumOfShots)
             {
                 gameLen = fighterA.NumOfShots;
@@ -64,7 +63,7 @@ namespace GameOfChanceSimulator
             {
                 gameLen = fighterB.NumOfShots;
             }
-            for (int i = 0; i < gameLen; i++)
+            for (int i = 0; i < gameLen; i++) 
             {
                 if (fighter1.NumOfShots >= 1)
                 {

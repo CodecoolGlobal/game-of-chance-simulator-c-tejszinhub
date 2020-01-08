@@ -498,3 +498,13 @@ Geralt,Terminator3,Geralt
 DrManhattan,John_Doe,DrManhattan
 Terminator3,Rambo,Terminator3
 Rambo,DrManhattan,DrManhattan
+Terminator3,John_Doe,John_Doe
+Rambo,Geralt,Geralt
+Geralt,John_Doe,Geralt
+Terminator3,Rambo,Terminator3
+Geralt,Terminator3,Geralt
+John_Doe,Geralt,Geralt
+John_Doe,Terminator3,John_Doe
+Rambo,Geralt,Geralt
+DrManhattan,Geralt,DrManhattan
+John_Doe,Rambo,John_Doe

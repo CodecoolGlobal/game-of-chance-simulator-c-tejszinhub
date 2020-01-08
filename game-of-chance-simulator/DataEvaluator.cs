@@ -9,10 +9,10 @@ namespace GameOfChanceSimulator
     {
         public DataEvaluator(HistoricalDataSet data, ILogger log)
         {
-            try
+            try //Handling no file exception.
             {
+                //Logging result to console.
                 var newResult = Run(data);
-                log.Info($"Generated:  {newResult.NumberOfSimulations} rounds of data.\n");
                 log.Info($"Number of simulations: {newResult.NumberOfSimulations} .\n");
                 log.Info($"The best bet would be {newResult.BestChoice} with the winrate of {newResult.BestChoiceChance * 100:f2}%. \n");
             }
@@ -24,7 +24,7 @@ namespace GameOfChanceSimulator
         }
 
         public Result Run(HistoricalDataSet dataSet)
-        {
+        {//Determening best choice and returnin type result obj.
             var numOfSimulation = dataSet.DataPoints.Count;
             var dictOfWinners = new Dictionary<string, int>();            
 

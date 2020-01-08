@@ -5,7 +5,7 @@ using System.Text;
 namespace GameOfChanceSimulator
 {
     class Result
-    {
+    {//Creating result objects template
         public int NumberOfSimulations { get; private set; }
         public string BestChoice { get; private set; }
         public float BestChoiceChance { get; private set; }
