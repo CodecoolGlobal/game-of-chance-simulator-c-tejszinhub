@@ -7,7 +7,11 @@ namespace GameOfChanceSimulator
 {
     class HistoricalDataSet
     {
+        static Round round = new Round();
+
+
         public int Size { get; private set; }
+        public string FighterCollection;
         private List<HistoricalDataPoint> _DataPoints = new List<HistoricalDataPoint>();
         public IReadOnlyList<HistoricalDataPoint> DataPoints { get { return _DataPoints.AsReadOnly(); } }
         internal void AddDatapoint(HistoricalDataPoint dataPoint)
@@ -16,13 +20,13 @@ namespace GameOfChanceSimulator
         }
         public HistoricalDataSet(ILogger log)
         {
-
+            round.LoadFighters(@"..\..\..\Fighters.csv");
+            GetAllFighters();
+            log.Info($"Fighters:  {FighterCollection}\n");
         }
 
         public void Generate()
         {
-            Round round = new Round();
-            round.LoadFighters(@"..\..\..\Fighters.csv");
             HistoricalDataPoint dataPoint = new HistoricalDataPoint(round.FightResult());
             AddDatapoint(dataPoint);
             this.Size++;
@@ -47,6 +51,20 @@ namespace GameOfChanceSimulator
                 HistoricalDataPoint nextDataPoint = new HistoricalDataPoint(item);
                 AddDatapoint(nextDataPoint);
                 this.Size++;
+            }
+        }
+        public void GetAllFighters()
+        {
+            for (int i = 0; i < round.AllFighters.Length; i++)
+            {
+                if (i == 0)
+                {
+                    this.FighterCollection += (round.AllFighters[i].Name);
+                }
+                else
+                {
+                    this.FighterCollection += ", " + (round.AllFighters[i].Name);
+                }
             }
         }
     }

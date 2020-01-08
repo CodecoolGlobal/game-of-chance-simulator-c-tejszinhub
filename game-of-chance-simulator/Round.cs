@@ -7,7 +7,7 @@ namespace GameOfChanceSimulator
 {
     class Round
     {
-        Fighter[] AllFighters;
+        public Fighter[] AllFighters { get; private set; }
 
         public Round()
         {
