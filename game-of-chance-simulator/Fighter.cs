@@ -30,6 +30,15 @@ namespace GameOfChanceSimulator
             this.Accuracy = accuracy;
             this.NumOfShots = numOfShots;
         }
+        public Fighter(string dataFromCSV)
+        {
+            string[] fighterData = dataFromCSV.Split(",");
+            this.Name = fighterData[0];
+            this.Hp = Convert.ToInt32(fighterData[1]);
+            this.Damage = Convert.ToInt32(fighterData[1]);
+            this.Accuracy = Convert.ToInt32(fighterData[1]);
+            this.NumOfShots = Convert.ToInt32(fighterData[1]);
+        }
         private void Attack(Fighter fighter1, Fighter fighter2)
         {//Mini game's Attack logic
             Random random = new Random();
@@ -63,7 +72,7 @@ namespace GameOfChanceSimulator
             {
                 gameLen = fighterB.NumOfShots;
             }
-            for (int i = 0; i < gameLen; i++) 
+            for (int i = 0; i < gameLen; i++)
             {
                 if (fighter1.NumOfShots >= 1)
                 {
