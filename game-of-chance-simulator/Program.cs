@@ -36,7 +36,7 @@ namespace GameOfChanceSimulator
             }
             else
             {
-                
+                dataSet.Load();
                 for (int i = 0; i < argNum; i++)
                 {
                     dataSet.Generate();
