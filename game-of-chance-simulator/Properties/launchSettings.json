@@ -2,7 +2,7 @@
   "profiles": {
     "game-of-chance-simulator": {
       "commandName": "Project",
-      "commandLineArgs": "400"
+      "commandLineArgs": "1500"
     }
   }
 }

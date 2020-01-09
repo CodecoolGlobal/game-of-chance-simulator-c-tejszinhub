@@ -32,14 +32,9 @@ namespace GameOfChanceSimulator
             this.Size++;
 
             string history = @"..\..\..\history.csv";
-            if (!File.Exists(history))
-            {
-                File.WriteAllText(history, dataPoint.DataPoint + "\n");
-            }
-            else
-            {
-                File.AppendAllText(history, dataPoint.DataPoint + "\n");
-            }
+            
+            File.AppendAllText(history, dataPoint.DataPoint + "\n");
+            
 
         }
         public void Load()
