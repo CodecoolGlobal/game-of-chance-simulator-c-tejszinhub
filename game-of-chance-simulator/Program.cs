@@ -32,6 +32,18 @@ namespace GameOfChanceSimulator
                 }
 
                 var dataEvaulator = new DataEvaluator(dataSet, conslog);
+                try //Handling no file exception.
+                {
+                    //Logging result to console.
+                    var newResult = dataEvaulator.Run(dataEvaulator.Data);
+                    dataEvaulator.Log.Info($"Number of simulations: {newResult.NumberOfSimulations} .\n");
+                    dataEvaulator.Log.Info($"The best bet would be {newResult.BestChoice} with the winrate of {newResult.BestChoiceChance * 100:f2}%. \n");
+                }
+                catch (Exception)
+                {
+
+                    dataEvaulator.Log.Error("There is no file called history.csv, please generate a few rounds first!");
+                }
                 return dataSet;
             }
             else
@@ -48,6 +60,9 @@ namespace GameOfChanceSimulator
                 }
 
                 var dataEvaulator = new DataEvaluator(dataSet, conslog);
+                var newResult = dataEvaulator.Run(dataEvaulator.Data);
+                dataEvaulator.Log.Info($"Number of simulations: {newResult.NumberOfSimulations} .\n");
+                dataEvaulator.Log.Info($"The best bet would be {newResult.BestChoice} with the winrate of {newResult.BestChoiceChance * 100:f2}%. \n");
                 return dataSet;
             }
 
