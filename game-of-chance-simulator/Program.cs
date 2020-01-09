@@ -10,7 +10,7 @@ namespace GameOfChanceSimulator
         static ConsoleLogger conslog = new ConsoleLogger();
         static HistoricalDataSet dataSet = new HistoricalDataSet(conslog);
         static void Main(string[] args)
-        {            
+        {
             if (args.Length == 0 || Convert.ToInt32(args[0]) == 0)
             {
                 GenerateHistoricalDataSet(0);
@@ -41,7 +41,7 @@ namespace GameOfChanceSimulator
                 {
                     dataSet.Generate();
                 }
-                
+
                 for (int i = 0; i < dataSet.DataPoints.Count; i++)
                 {
                     conslog.Info($"{dataSet.DataPoints[i].fighter1} vs {dataSet.DataPoints[i].fighter2}, winner: {dataSet.DataPoints[i].winner}" + "\n");
@@ -50,8 +50,8 @@ namespace GameOfChanceSimulator
                 var dataEvaulator = new DataEvaluator(dataSet, conslog);
                 return dataSet;
             }
-            
-    
+
+
         }
     }
 }
