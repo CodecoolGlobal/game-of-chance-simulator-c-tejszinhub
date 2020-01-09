@@ -25,7 +25,7 @@ namespace GameOfChanceSimulator
             }
             this.AllFighters = allFighters.ToArray();
 
-
+            //Replace the triple loop method with the code above
             /*using (var reader = new StreamReader(file))
             
             {

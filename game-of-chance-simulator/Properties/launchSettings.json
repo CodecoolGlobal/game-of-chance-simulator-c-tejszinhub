@@ -1,7 +1,8 @@
 {
   "profiles": {
     "game-of-chance-simulator": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": "400"
     }
   }
 }
