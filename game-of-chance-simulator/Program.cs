@@ -34,7 +34,6 @@ namespace GameOfChanceSimulator
                 var dataEvaulator = new DataEvaluator(dataSet, conslog);
                 try //Handling no file exception.
                 {
-                    //Logging result to console.
                     var newResult = dataEvaulator.Run(dataEvaulator.Data);
                     dataEvaulator.Log.Info($"Number of simulations: {newResult.NumberOfSimulations} .\n");
                     dataEvaulator.Log.Info($"The best bet would be {newResult.BestChoice} with the winrate of {newResult.BestChoiceChance * 100:f2}%. \n");
@@ -56,7 +55,16 @@ namespace GameOfChanceSimulator
 
                 for (int i = 0; i < dataSet.DataPoints.Count; i++)
                 {
-                    conslog.Info($"{dataSet.DataPoints[i].fighter1} vs {dataSet.DataPoints[i].fighter2}, winner: {dataSet.DataPoints[i].winner}" + "\n");
+                    if (i < dataSet.DataPoints.Count - argNum)
+                    {
+                        conslog.Info($"{dataSet.DataPoints[i].fighter1} vs {dataSet.DataPoints[i].fighter2}, winner: {dataSet.DataPoints[i].winner}" + "\n");
+                    }
+                    else
+                    {
+                        conslog.Info("Generating 1 round of data." + "\n");
+                        conslog.Info($"{dataSet.DataPoints[i].fighter1} vs {dataSet.DataPoints[i].fighter2}, winner: {dataSet.DataPoints[i].winner}" + "\n");
+                    }
+
                 }
 
                 var dataEvaulator = new DataEvaluator(dataSet, conslog);
