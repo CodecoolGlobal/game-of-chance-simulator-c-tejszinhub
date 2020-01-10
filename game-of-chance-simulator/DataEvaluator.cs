@@ -16,14 +16,14 @@ namespace GameOfChanceSimulator
             this.Log = log;
         }
 
-        public Result Run(HistoricalDataSet dataSet)
+        public Result Run()
         {//Determening best choice and returnin type result obj.
-            var numOfSimulation = dataSet.DataPoints.Count;
+            var numOfSimulation = Data.DataPoints.Count;
             var dictOfWinners = new Dictionary<string, int>();
 
             for (int i = 0; i < numOfSimulation; i++)
             {
-                var winners = dataSet.DataPoints[i].winner;
+                var winners = Data.DataPoints[i].winner;
                 if (!dictOfWinners.ContainsKey(winners))
                 {
                     dictOfWinners[winners] = 1;

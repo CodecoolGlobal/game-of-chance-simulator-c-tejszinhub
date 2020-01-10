@@ -20,7 +20,7 @@ namespace GameOfChanceSimulator
                 GenerateHistoricalDataSet(Convert.ToInt32(args[0]));
             }
         }
-        public static HistoricalDataSet GenerateHistoricalDataSet(int argNum)
+        static HistoricalDataSet GenerateHistoricalDataSet(int argNum)
         {
             if (argNum == 0)
             {
@@ -34,7 +34,7 @@ namespace GameOfChanceSimulator
                 var dataEvaulator = new DataEvaluator(dataSet, conslog);
                 try //Handling no file exception.
                 {
-                    var newResult = dataEvaulator.Run(dataEvaulator.Data);
+                    var newResult = dataEvaulator.Run();
                     dataEvaulator.Log.Info($"Number of simulations: {newResult.NumberOfSimulations} .\n");
                     dataEvaulator.Log.Info($"The best bet would be {newResult.BestChoice} with the winrate of {newResult.BestChoiceChance * 100:f2}%. \n");
                 }
@@ -68,7 +68,7 @@ namespace GameOfChanceSimulator
                 }
 
                 var dataEvaulator = new DataEvaluator(dataSet, conslog);
-                var newResult = dataEvaulator.Run(dataEvaulator.Data);
+                var newResult = dataEvaulator.Run();
                 dataEvaulator.Log.Info($"Number of simulations: {newResult.NumberOfSimulations} .\n");
                 dataEvaulator.Log.Info($"The best bet would be {newResult.BestChoice} with the winrate of {newResult.BestChoiceChance * 100:f2}%. \n");
                 return dataSet;
